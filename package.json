@@ -7,7 +7,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "ui": "pnpm --filter @repo/ui ui"
+    "ui": "pnpm --filter @repo/design-system ui"
   },
   "devDependencies": {
     "prettier": "^3.5.3",
