@@ -1,10 +1,10 @@
-import type { HardhatUserConfig } from "hardhat/config"
-import "@nomicfoundation/hardhat-toolbox"
-import "@nomicfoundation/hardhat-ethers"
-import "dotenv/config"
+import type { HardhatUserConfig } from 'hardhat/config';
+import '@nomicfoundation/hardhat-toolbox';
+import '@nomicfoundation/hardhat-ethers';
+import 'dotenv/config';
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.20",
+  solidity: '0.8.20',
   networks: {
     hardhat: {},
     mainnet: {
@@ -35,6 +35,6 @@ const config: HardhatUserConfig = {
   etherscan: {
     apiKey: process.env.ETHERSCAN_API_KEY,
   },
-}
+};
 
-export default config
+export default config;

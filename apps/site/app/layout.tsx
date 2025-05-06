@@ -1,20 +1,20 @@
-import type React from "react"
-import "@/app/styles.css"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import { ThemeProvider } from "@repo/ui/components/theme-provider"
+import type React from 'react';
+import '@/app/styles.css';
+import { ThemeProvider } from '@repo/ui/components/theme-provider';
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: "Web3 Site",
-  description: "Web3 Site built with Next.js 15 and Tailwind CSS v4",
-}
+  title: 'Web3 Site',
+  description: 'Web3 Site built with Next.js 15 and Tailwind CSS v4',
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -24,5 +24,5 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

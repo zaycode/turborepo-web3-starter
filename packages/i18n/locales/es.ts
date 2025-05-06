@@ -1,15 +1,15 @@
 export default {
-  welcome: "Welcome to Web3 Starter Kit",
-  connect: "Connect Wallet",
-  disconnect: "Disconnect",
-  wrongNetwork: "Wrong network",
+  welcome: 'Bienvenido al Kit de Inicio Web3',
+  connect: 'Conectar Cartera',
+  disconnect: 'Desconectar',
+  wrongNetwork: 'Red incorrecta',
   home: {
-    title: "Web3 Starter Kit",
-    description: "A comprehensive starter kit for Web3 development",
+    title: 'Kit de Inicio Web3',
+    description: 'Un kit de inicio completo para el desarrollo Web3',
   },
   common: {
-    loading: "Loading...",
-    error: "An error occurred",
-    success: "Success!",
+    loading: 'Cargando...',
+    error: 'Ocurrió un error',
+    success: '¡Éxito!',
   },
-} as const
+} as const;

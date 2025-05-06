@@ -3,22 +3,19 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "workspaces": [
-    "apps/*",
-    "packages/*",
-    "hardhat"
-  ],
+  "workspaces": ["apps/*", "packages/*", "hardhat"],
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
-    "lint": "biome check .",
-    "format": "biome format --write .",
+    "lint": "ultracite lint",
+    "format": "ultracite format",
     "test": "turbo test",
     "analyze": "turbo analyze",
     "translate": "turbo translate",
     "boundaries": "turbo boundaries",
     "migrate": "cd packages/database && npx prisma format && npx prisma generate && npx prisma db push",
-    "clean": "git clean -xdf node_modules",
+    "clean": "git clean -xdf node_modules .turbo",
+
     "generate:test": "node -r esbuild-register ./scripts/generators/test.ts",
     "generate:app": "node -r esbuild-register ./scripts/generators/app.ts",
     "generate:package": "node -r esbuild-register ./scripts/generators/package.ts"

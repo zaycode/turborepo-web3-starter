@@ -13,8 +13,7 @@
       "dist",
       ".next",
       "build",
-      "hardhat/artifacts/**",
-      "hardhat/cache/**"
+      "hardhat/**"
     ]
   },
   "linter": {
@@ -22,13 +21,18 @@
     "rules": {
       "recommended": true,
       "correctness": {
-        "noUnusedVariables": "error"
+        "noUnusedVariables": "error",
+        "noUnusedFunctionParameters": "off",
+        "useHookAtTopLevel": "off"
       },
       "suspicious": {
-        "noExplicitAny": "warn"
+        "noExplicitAny": "off",
+        "noConsole": "off"
       },
       "style": {
-        "noNonNullAssertion": "off"
+        "useBlockStatements": "off",
+        "noNonNullAssertion": "off",
+        "noParameterProperties": "off"
       }
     }
   },

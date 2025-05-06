@@ -1,6 +1,6 @@
-import { createEnv } from "@t3-oss/env-nextjs"
-import { z } from "zod"
-import { rpcSchema } from "./constants/rpc"
+import { createEnv } from '@t3-oss/env-nextjs';
+import { z } from 'zod';
+import { rpcSchema } from './constants/rpc';
 
 export const keys = () =>
   createEnv({
@@ -17,7 +17,9 @@ export const keys = () =>
       ALCHEMY_API_KEY: process.env.ALCHEMY_API_KEY,
       PRIVATE_KEY: process.env.PRIVATE_KEY,
       ETHERSCAN_API_KEY: process.env.ETHERSCAN_API_KEY,
-      RPC_URLS: process.env.RPC_URLS ? JSON.parse(process.env.RPC_URLS) : undefined,
+      RPC_URLS: process.env.RPC_URLS
+        ? JSON.parse(process.env.RPC_URLS)
+        : undefined,
     },
     skipValidation: !!process.env.SKIP_ENV_VALIDATION,
-  })
+  });

@@ -8,9 +8,8 @@
     "db:generate": "prisma generate",
     "db:push": "prisma db push --skip-generate",
     "db:studio": "prisma studio",
-    "lint": "biome check .",
-    "format": "biome format --write .",
-    "clean": "git clean -xdf .cache .turbo dist node_modules",
+
+    "clean": "git clean -xdf .cache .turbo dist node_modules .next",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {

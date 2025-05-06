@@ -122,7 +122,7 @@ This will start the development servers for all applications:
 - Site: http://localhost:3000
 - DApp: http://localhost:3001
 - API: http://localhost:3002
-- Docs: http://localhost:3003
+
 
 ### Building
 

@@ -3,9 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "lint": "biome check .",
-    "format": "biome format --write .",
-    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "clean": "git clean -xdf .cache .turbo dist node_modules .next",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {

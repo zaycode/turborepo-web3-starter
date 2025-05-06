@@ -3,12 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --port 3000",
+    "dev": "next dev --port 3000 --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "biome check .",
-    "format": "biome format --write .",
-    "clean": "git clean -xdf .cache .turbo dist node_modules",
+    "clean": "git clean -xdf .cache .turbo dist node_modules .next",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
