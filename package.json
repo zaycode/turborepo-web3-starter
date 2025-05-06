@@ -1,21 +1,42 @@
 {
-  "name": "turborepo-simple-started",
+  "name": "nextjs-turborepo-web3",
+  "version": "0.1.0",
   "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "hardhat"
+  ],
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types",
-    "ui": "pnpm --filter @repo/design-system ui"
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "test": "turbo test",
+    "analyze": "turbo analyze",
+    "translate": "turbo translate",
+    "boundaries": "turbo boundaries",
+    "migrate": "cd packages/database && npx prisma format && npx prisma generate && npx prisma db push",
+    "clean": "git clean -xdf node_modules",
+    "generate:test": "node -r esbuild-register ./scripts/generators/test.ts",
+    "generate:app": "node -r esbuild-register ./scripts/generators/app.ts",
+    "generate:package": "node -r esbuild-register ./scripts/generators/package.ts"
   },
   "devDependencies": {
-    "prettier": "^3.5.3",
-    "turbo": "^2.5.0",
-    "typescript": "5.8.2"
+    "@biomejs/biome": "1.9.4",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@repo/typescript-config": "workspace:*",
+    "esbuild": "^0.25.4",
+    "esbuild-register": "^3.6.0",
+    "husky": "^9.1.7",
+    "tsup": "^8.4.0",
+    "turbo": "^2.5.2",
+    "ultracite": "^4.2.4"
   },
-  "packageManager": "pnpm@9.0.0",
+  "packageManager": "pnpm@8.15.4",
   "engines": {
-    "node": ">=18"
+    "node": ">=18.0.0"
   }
 }

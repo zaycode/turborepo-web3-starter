@@ -1,0 +1,41 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.4/schema.json",
+  "extends": ["ultracite"],
+  "javascript": {
+    "globals": ["window", "document"]
+  },
+  "files": {
+    "ignore": [
+      "packages/ui/components/ui/**",
+      "packages/ui/lib/**",
+      "packages/ui/hooks/**",
+      "node_modules",
+      "dist",
+      ".next",
+      "build",
+      "hardhat/artifacts/**",
+      "hardhat/cache/**"
+    ]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "correctness": {
+        "noUnusedVariables": "error"
+      },
+      "suspicious": {
+        "noExplicitAny": "warn"
+      },
+      "style": {
+        "noNonNullAssertion": "off"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 120
+  }
+}

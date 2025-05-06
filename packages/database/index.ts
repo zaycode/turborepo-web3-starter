@@ -1,15 +1,18 @@
-import 'server-only';
-import { keys } from './keys';
-const config = keys();
+import { PrismaClient } from "@prisma/client"
 
-let database: any = null;
-
-switch (config.DATABASE_TYPE) {
-    case 'neon':
-        database = (await import('./adapters/neon')).database();
-        break;
-    default:
-        database = (await import('./adapters/default')).database();
+declare global {
+  // eslint-disable-next-line no-var
+  var prisma: PrismaClient | undefined
 }
 
-export { database };
+export const prisma =
+  global.prisma ||
+  new PrismaClient({
+    log: process.env.NODE_ENV === "development" ? ["query", "error", "warn"] : ["error"],
+  })
+
+if (process.env.NODE_ENV !== "production") {
+  global.prisma = prisma
+}
+
+export * from "@prisma/client"
