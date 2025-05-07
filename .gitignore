@@ -11,7 +11,6 @@ node_modules
 .env.development.local
 .env.test.local
 .env.production.local
-.env.sentry-build-plugin
 
 # Testing
 coverage
@@ -28,6 +27,7 @@ out/
 build
 dist
 
+
 # Debug
 npm-debug.log*
 yarn-debug.log*
@@ -37,15 +37,12 @@ yarn-error.log*
 .DS_Store
 *.pem
 
-# JetBrains IDE (IntelliJ IDEA, WebStorm, etc)
-.idea/
+# Sentry Config File
+.env.sentry-build-plugin
 
-# VSCode
-.vscode/
+# BaseHub
+.basehub
 
-# Editor-specific
-*.sublime-project
-*.sublime-workspace
-*.code-workspace
-*.swp
-*~
+# AI Rules
+.cursorrules
+.github/copilot-instructions.md

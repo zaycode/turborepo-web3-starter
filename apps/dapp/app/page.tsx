@@ -1,20 +1,10 @@
-import { ConnectButton } from '@repo/ui/components/connect-button';
 import Link from 'next/link';
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed top-0 left-0 flex w-full justify-center border-border border-b bg-background pt-8 pb-6 backdrop-blur-2xl lg:static lg:w-auto lg:rounded-xl lg:border lg:p-4">
-          Gerhana Web3 DApp
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-background via-background lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <ConnectButton />
-        </div>
-      </div>
-
       <div className="relative flex place-items-center">
-        <h1 className="font-bold text-4xl">Gerhana Web3 Starter Kit</h1>
+        <h1 className="font-bold text-4xl">Web3 Starter Kit</h1>
       </div>
 
       <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-3 lg:text-left">

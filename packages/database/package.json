@@ -5,22 +5,27 @@
   "main": "./index.ts",
   "types": "./index.ts",
   "scripts": {
-    "db:generate": "prisma generate",
-    "db:push": "prisma db push --skip-generate",
-    "db:studio": "prisma studio",
-
-    "clean": "git clean -xdf .cache .turbo dist node_modules .next",
+    "analyze": "prisma generate --no-hints --schema=./prisma/schema.prisma",
+    "build": "prisma generate --no-hints --schema=./prisma/schema.prisma",
+    "clean": "git clean -xdf .cache .turbo dist node_modules",
     "typecheck": "tsc --noEmit --emitDeclarationOnly false"
   },
   "dependencies": {
+    "@neondatabase/serverless": "^1.0.0",
+    "@prisma/adapter-neon": "^6.7.0",
     "@prisma/client": "^6.7.0",
     "@repo/typescript-config": "workspace:*",
     "@t3-oss/env-nextjs": "^0.13.4",
+    "server-only": "^0.0.1",
+    "undici": "^7.8.0",
+    "ws": "^8.18.2",
     "zod": "^3.24.4"
   },
   "devDependencies": {
-    "@types/node": "^22.15.11",
-    "prisma": "^6.7.0",
+    "@types/node": "^22.15.14",
+    "@types/ws": "^8.18.1",
+    "bufferutil": "^4.0.9",
+    "prisma": "6.4.1",
     "typescript": "^5.8.3"
   }
 }

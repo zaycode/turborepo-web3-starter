@@ -1,111 +1,59 @@
 'use client';
-import { RainbowKitProvider, getDefaultConfig } from '@rainbow-me/rainbowkit';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { useTheme } from 'next-themes';
-import type { ReactNode } from 'react';
-import { WagmiProvider } from 'wagmi';
+import {ReactNode} from 'react';
+import {WagmiProvider} from 'wagmi';
+import {QueryClient, QueryClientProvider} from '@tanstack/react-query';
 import {
-  arbitrum,
-  base,
-  mainnet,
-  optimism,
-  polygon,
-  sepolia,
-} from 'wagmi/chains';
+    RainbowKitProvider,
+    getDefaultConfig,
+    type Chain,
+} from '@rainbow-me/rainbowkit';
+import {useTheme} from 'next-themes';
+
+
 import '@rainbow-me/rainbowkit/styles.css';
+import {monadTestnet, sepolia, somniaTestnet} from "viem/chains";
 
 const queryClient = new QueryClient();
 
 interface Web3ProviderProps {
-  children: ReactNode;
-  projectId: string;
-  rpcUrls?: Record<string, string>;
+    children: ReactNode;
+    projectId: string;
+    appName: string;
+    chains: readonly Chain[]; // <- pakai RainbowKit Chain
 }
 
 export function WalletProvider({
-  children,
-  projectId,
-  rpcUrls = {},
-}: Web3ProviderProps) {
-  const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === 'dark';
+                                   children,
+                                   projectId,
+                                   appName,
+                                   chains,
+                               }: Web3ProviderProps) {
 
-  if (!projectId) {
-    throw new Error('NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID is not set');
-  }
+    const { resolvedTheme } = useTheme();
+    const isDark = resolvedTheme === 'dark';
 
-  // Configure chains with custom RPC URLs if provided
-  const chains = [
-    rpcUrls.mainnet
-      ? {
-          ...mainnet,
-          rpcUrls: {
-            default: { http: [rpcUrls.mainnet] },
-            public: { http: [rpcUrls.mainnet] },
-          },
-        }
-      : mainnet,
-    rpcUrls.sepolia
-      ? {
-          ...sepolia,
-          rpcUrls: {
-            default: { http: [rpcUrls.sepolia] },
-            public: { http: [rpcUrls.sepolia] },
-          },
-        }
-      : sepolia,
-    rpcUrls.arbitrum
-      ? {
-          ...arbitrum,
-          rpcUrls: {
-            default: { http: [rpcUrls.arbitrum] },
-            public: { http: [rpcUrls.arbitrum] },
-          },
-        }
-      : arbitrum,
-    rpcUrls.optimism
-      ? {
-          ...optimism,
-          rpcUrls: {
-            default: { http: [rpcUrls.optimism] },
-            public: { http: [rpcUrls.optimism] },
-          },
-        }
-      : optimism,
-    rpcUrls.polygon
-      ? {
-          ...polygon,
-          rpcUrls: {
-            default: { http: [rpcUrls.polygon] },
-            public: { http: [rpcUrls.polygon] },
-          },
-        }
-      : polygon,
-    rpcUrls.base
-      ? {
-          ...base,
-          rpcUrls: {
-            default: { http: [rpcUrls.base] },
-            public: { http: [rpcUrls.base] },
-          },
-        }
-      : base,
-  ];
+    if (!projectId) {
+        throw new Error('WalletConnect projectId is not set');
+    }
+    if (chains.length < 1) {
+        throw new Error('Set Support Chain');
+    }
 
-  const config = getDefaultConfig({
-    appName: 'Next.js TurboRepo Web3',
-    projectId: projectId,
-    chains: chains,
-    ssr: true,
-  });
+    const config = getDefaultConfig({
+        appName: 'Gerhana',
+        projectId: projectId,
+        chains: [monadTestnet, somniaTestnet],
+        ssr: true,
+    });
 
-  return (
-    <WagmiProvider config={config}>
-      <QueryClientProvider client={queryClient}>
-        <RainbowKitProvider theme={isDark ? undefined : undefined}>
-          {children}
-        </RainbowKitProvider>
-      </QueryClientProvider>
-    </WagmiProvider>
-  );
+    return (
+        <WagmiProvider config={config}>
+            <QueryClientProvider client={queryClient}>
+                <RainbowKitProvider theme={isDark ? undefined : undefined}>
+                    {children}
+                </RainbowKitProvider>
+            </QueryClientProvider>
+        </WagmiProvider>
+    );
 }
+

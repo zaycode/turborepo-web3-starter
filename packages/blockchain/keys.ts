@@ -1,25 +1,17 @@
-import { createEnv } from '@t3-oss/env-nextjs';
-import { z } from 'zod';
-import { rpcSchema } from './constants/rpc';
+import { createEnv } from "@t3-oss/env-nextjs"
+import { z } from "zod"
 
 export const keys = () =>
   createEnv({
     server: {
-      INFURA_API_KEY: z.string().optional(),
-      ALCHEMY_API_KEY: z.string().optional(),
       PRIVATE_KEY: z.string().optional(),
-      ETHERSCAN_API_KEY: z.string().optional(),
-      RPC_URLS: rpcSchema.optional(),
     },
-    client: {},
+    client: {
+      NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID: z.string(),
+    },
     runtimeEnv: {
-      INFURA_API_KEY: process.env.INFURA_API_KEY,
-      ALCHEMY_API_KEY: process.env.ALCHEMY_API_KEY,
       PRIVATE_KEY: process.env.PRIVATE_KEY,
-      ETHERSCAN_API_KEY: process.env.ETHERSCAN_API_KEY,
-      RPC_URLS: process.env.RPC_URLS
-        ? JSON.parse(process.env.RPC_URLS)
-        : undefined,
+      NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID: process.env.NEXT_PUBLIC_WALLET_CONNECT_PROJECT_ID,
     },
     skipValidation: !!process.env.SKIP_ENV_VALIDATION,
-  });
+  })

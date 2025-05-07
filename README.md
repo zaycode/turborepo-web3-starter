@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>🔗 Next.js TurboRepo Web3</h1>
+  <h1>Turborepo Web3 Starter</h1>
   <p><strong>A production-grade TurboRepo template for Web3 applications</strong></p>
   <p>Built with Next.js 15, Tailwind CSS v4, and Hardhat</p>
   
