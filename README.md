@@ -100,8 +100,8 @@ This monorepo is organized with the following key packages:
 
 \`\`\`bash
 # Clone the repository
-git clone https://github.com/yourusername/nextjs-turborepo-web3.git
-cd nextjs-turborepo-web3
+git clone https://github.com/zaycode/turborepo-web3-starter.git
+cd turborepo-web3-starter
 
 # Install dependencies
 pnpm install
@@ -307,12 +307,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 ## 📄 License
 
 MIT
-
-## 💖 Support
-
-If you find this project useful, please consider supporting it by donating:
-
-- **Ethereum**: `0xd5270e9cA602EB91bBA72107F9c115768A811a59`
-- **Solana**: `2XL4QzcVj6PuK7nB5Zusq3ZnMzQacbWLoiesKesSajTf`
-
-Your support helps maintain and improve this project!
